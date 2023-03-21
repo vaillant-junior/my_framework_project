@@ -1,0 +1,37 @@
+{% extends 'security/login.html.twig' %}
+
+{% block title %}Register{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href={{asset("asset/CSS/registerStyle.css")}} type="text/css">
+{% endblock %}
+{% block body %}
+    <h1>Register</h1>
+<div class="logForm">
+    <div class="divBack">
+    {{ form_start(registrationForm) }}
+<div style="text-align: right;">
+    <div style="margin: 10px;">
+        {{ form_row(registrationForm.name) }}
+    </div>
+    <div style="margin: 10px;">
+        {{ form_row(registrationForm.email) }}
+    </div>
+    <div style="margin: 10px;">
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+    </div>
+           
+    <div style="text-align: center; margin: 10px;">
+        {{ form_row(registrationForm.agreeTerms) }}
+    </div>
+
+    <div style="text-align: center;">
+        <button type="submit" class="btn">Register</button>
+    </div>
+</div>
+    {{ form_end(registrationForm) }}
+    </div>
+</div>
+{% endblock %}
