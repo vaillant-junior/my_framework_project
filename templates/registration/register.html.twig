@@ -1,37 +1,47 @@
 {% extends 'security/login.html.twig' %}
 
 {% block title %}Register{% endblock %}
+
 {% block stylesheets %}
     {{ parent() }}
     <link rel="stylesheet" href={{asset("asset/CSS/registerStyle.css")}} type="text/css">
 {% endblock %}
-{% block body %}
-    <h1>Register</h1>
-<div class="logForm">
-    <div class="divBack">
-    {{ form_start(registrationForm) }}
-<div style="text-align: right;">
-    <div style="margin: 10px;">
-        {{ form_row(registrationForm.name) }}
-    </div>
-    <div style="margin: 10px;">
-        {{ form_row(registrationForm.email) }}
-    </div>
-    <div style="margin: 10px;">
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-    </div>
-           
-    <div style="text-align: center; margin: 10px;">
-        {{ form_row(registrationForm.agreeTerms) }}
-    </div>
 
-    <div style="text-align: center;">
-        <button type="submit" class="btn">Register</button>
+{% block body %}
+    <div class="d-flex justify-content-center">
+        <div class="p-5 rounded mt-5 align-self-center divBack">
+            {{ form_start(registrationForm) }}
+                <h1 class="h3 p-10 font-weight-bold text text-white text-center">Registration</h1>
+                <br>
+                <div class="text-right">
+                    <div class="m-3">
+                        {{ form_row(registrationForm.name) }}
+                    </div>
+                    <div class="m-3">
+                        {{ form_row(registrationForm.email) }}
+                    </div>
+                    <div class="m-3">
+                        {{ form_row(registrationForm.plainPassword, {
+                            label: 'Password'
+                        }) }}
+                    </div>
+                        
+                    <div class="text-center m-3">
+                        {{ form_row(registrationForm.agreeTerms) }}
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                        <br>
+                        <small class="small text-white font-weight-bold">already a member ? <a href="{{path('app_login')}}">Login here !</a></small>
+                    </div>
+                </div>
+            {{ form_end(registrationForm) }}
+        </div>
     </div>
-</div>
-    {{ form_end(registrationForm) }}
-    </div>
-</div>
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
 {% endblock %}
