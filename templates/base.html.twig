@@ -18,7 +18,30 @@
         {% endblock %}
     </head>
     <body>
-        {% block navBar %}{% endblock %}
-        {% block body %}{% endblock %}
+        {% block body %}
+            {% block navBar %}
+                <ul class="nav bg-dark">
+                    <li class="nav-item ml-2">
+                        <h2><small style="color:green">Car</small><small style="color:red">Lo⭐ca</small><small style="color:yellow">tion</small></h2>
+                    </li>
+                    <li class="nav-item ml-5">
+                        <a class="nav-link" href="{{ path('app_home_page', {'page' : 1}) }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"href="{{ path('app_car') }}">Reservation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Account Setting</a>
+                    </li>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Admin</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            {% endblock %}
+            {% block content %}
+            {% endblock %}
+        {% endblock %}
     </body>
 </html>

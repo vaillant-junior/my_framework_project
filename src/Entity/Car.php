@@ -26,6 +26,9 @@ class Car
     private ?int $price = null;
 
     #[ORM\Column]
+    private ?string $name = null;
+
+    #[ORM\Column]
     private ?bool $available = null;
 
     #[ORM\OneToMany(mappedBy: 'car', targetEntity: Rent::class, orphanRemoval: true)]
@@ -130,6 +133,18 @@ class Car
     public function setImage(string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
 
         return $this;
     }
