@@ -20,7 +20,7 @@
     <body>
         {% block body %}
             {% block navBar %}
-                <ul class="nav bg-dark">
+                <ul class="nav bg-dark fixed-top">
                     <li class="nav-item ml-2">
                         <h2><small style="color:green">Car</small><small style="color:red">Lo⭐ca</small><small style="color:yellow">tion</small></h2>
                     </li>
@@ -28,16 +28,19 @@
                         <a class="nav-link" href="{{ path('app_home_page', {'page' : 1}) }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"href="{{ path('app_car') }}">Reservation</a>
+                        <a class="nav-link" href="{{ path('app_car') }}">Reservation</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Account Setting</a>
+                        <a class="nav-link" href="{{path('app_profil')}}">Account Setting</a>
                     </li>
                     {% if is_granted('ROLE_ADMIN') %}
                         <li class="nav-item">
-                            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Admin</a>
+                            <a class="nav-link" href="{{ path('app_user_crud_index') }}" tabindex="-1" aria-disabled="true">Admin</a>
                         </li>
                     {% endif %}
+                    <li class="nav-item ml-auto">
+                        <a class="nav-link" href="{{ path('app_logout') }}">LogOut</a>
+                        </li>
                 </ul>
             {% endblock %}
             {% block content %}

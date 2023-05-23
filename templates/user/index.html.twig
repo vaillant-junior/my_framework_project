@@ -13,7 +13,7 @@
 
         {% for car in page_cars %}
             <div class="card" style="width: 18rem;">
-                <img src={{car.getImage() ~ car.getType().getName()}} class="card-img-top" alt="...">
+                <img src={{car.getImage()}} class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{car.getName()}} <small>{{car.getPrice() ~ "EUR"}}</small></h5>
                     <div class="text-center">

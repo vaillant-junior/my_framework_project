@@ -3,22 +3,22 @@
 {% block title %}Use Welcome Page{% endblock %}
 
 {% block body %}
-    {{parent()}}
+    {{ parent() }}
 {% endblock %}
 
 {% block content %}
-    <div class="m-2">
+    <div class="m-2 d-flex flex-wrap justify-content-center">
         {% for rent in rent_car %}
             {% set car = rent.getCar() %}
-            <div class="card" style="width: 18rem;">
-                <img src={{car.getImage() ~ car.getType().getName()}} class="card-img-top" alt="...">
+            <div class="card m-2" style="width: 18rem;">
+                <img src={{ car.getImage() }} class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">{{car.getName()}} <small>{{car.getPrice() ~ "EUR"}}</small></h5>
-                    <h3>Pay price ({{rent.getDuration()}}) Days: {{rent.price}} EUR</h3>
+                    <h5 class="card-title">{{ car.getName() }} <small>{{ car.getPrice() ~ "EUR" }}</small></h5>
+                    <h3>Pay price ({{ rent.getDuration() }}) Days: {{ rent.price }} EUR</h3>
                 </div>
                 <ul>
                     {% for feat in car.getFeatures() %}
-                       <li>{{feat}}</li>
+                        <li>{{ feat }}</li>
                     {% endfor %}
                 </ul>
             </div>

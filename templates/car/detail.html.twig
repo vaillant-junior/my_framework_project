@@ -9,7 +9,7 @@
 {% block content %}
     <div class="m-5">
         <div class="media">
-            <img src={{car.getImage() ~ car.getType().getName()}} class="mr-3" alt="...">
+            <img src={{car.getImage()}} class="mr-3" alt="...">
             <div class="media-body">
                 <h5 class="mt-0">{{car.name}}</h5>
                 <p>Type: {{car.type.name}}</small>
